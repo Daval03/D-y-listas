@@ -3,24 +3,23 @@ package Pruebas;
 public class Lista<t>{
 	
 	private Nodo<t> first;
-	public int tamaño;
+	public int tamaÃ±o;
 	
 	public Lista() {
 		this.first=null;
-		tamaño=0;
+		tamaÃ±o=0;
 	}
 	public void addlist(t e) {
 		if (first==null) {
 			first=new Nodo<t>(e);
-			tamaño++;
 		}else {
 			Nodo<t> temp=first;
 			while (temp.getNext()!=null) {
 				temp=temp.getNext();
 				}
-			tamaño++;
 			temp.next=new Nodo<t>(e);
 		}
+		tamaÃ±o++;
 	}
 	public void addfirst(t e) {
 		Nodo<t> n=new Nodo<t>(e);
@@ -37,9 +36,8 @@ public class Lista<t>{
 	public boolean Buscar_dato(String dato) {
 		Nodo<t> temp=first;
 		int cont=0;
-		
-		while (cont<tamaño) {
-			if (temp.getValue()== dato){
+		while (cont<tamaÃ±o) {
+			if (temp.getValue().equals(dato)){
 				return true;
 			}else {
 				cont++;
@@ -51,7 +49,7 @@ public class Lista<t>{
 	public t SacarPosicion(int referencia) {
 		int cont=0;
 		Nodo<t> temp=first;
-		while (cont<tamaño) {
+		while (cont<tamaÃ±o) {
 			if (cont==referencia) {
 				return temp.getValue();
 			}else {
