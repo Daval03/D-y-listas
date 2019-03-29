@@ -3,12 +3,12 @@ import java.io.*;
 
 public class Generador_Diccionario {
 	
-	Lista<String> Datos = new Lista<String>();
+	ArbolBinario<String> Datos = new ArbolBinario<String>();
 	
 	public void Generador_lista_Diccionario() {
 		File archivo = null;
-	    FileReader fr = null;
-	    BufferedReader br = null;
+		FileReader fr = null;
+		BufferedReader br = null;
 		try {
 			archivo = new File("C:\\Users\\Aldo Cambronero\\Desktop\\xd.txt");//cambiar segun donde se emplee
 			fr= new FileReader(archivo);
@@ -16,7 +16,7 @@ public class Generador_Diccionario {
 			String linea;
 			while ((linea=br.readLine())!=null) {
 				linea= eliminador_basura_palabra(linea);//me elimina trash values, para que entre limpio
-				Datos.addlist(linea.toLowerCase());//para que se meta a la lista como en minuscula
+				Datos.insert(linea.toLowerCase());//para que se meta a la lista como en minuscula
 			}//En mi compu dura como 2 mint
 		}catch(Exception e){
 	         e.printStackTrace();
@@ -48,7 +48,7 @@ public class Generador_Diccionario {
 			bw = new BufferedWriter(fw);
 			
 			bw.write("\n"+palabra.toLowerCase());//se mete al text
-			Datos.addlist(palabra.toLowerCase());//se mete a la lista simple
+			Datos.insert(palabra.toLowerCase());//se mete a la lista simple
 		}catch (IOException e) {
 			e.printStackTrace();
 		}finally {
